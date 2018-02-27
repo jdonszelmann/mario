@@ -1,0 +1,46 @@
+worlds = {
+	1:{
+		1:{
+			"foreground_blocks":[
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"question_block0_0"],
+				[],
+				[],
+				[],
+				[None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"question_block0_0",None,None,None,"brick_red","question_block0_0","brick_red","question_block0_0","brick_red",None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"pipe1_left_top","pipe1_right_top"],
+				[None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"pipe1_left_top","pipe1_right_top",None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot"],
+				[None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"pipe1_left_top","pipe1_right_top",None,None,None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot",None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot"],
+				[None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot",None,None,None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot",None,None,None,None,None,None,"pipe1_left_bot","pipe1_right_bot"],
+				["gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0"],
+				["gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0","gnd_red_0"],
+			],			
+			"background_blocks":[
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[],
+				[None,None,"bush_top",None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"bush_top"],
+				[None,"bush_left","bush_center_0","bush_right",None,None,None,None,None,None,None,None,None,None,None,None,None,"bush_top",None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"bush_left","bush_center_0","bush_right"],
+				["bush_left","bush_center_0","bush_center_1","bush_center_0","bush_right",None,None,None,None,None,None,"bush_L","bush_C","bush_C","bush_C","bush_R","bush_left","bush_center_0","bush_right",None,None,None,None,"bush_L","bush_C","bush_R",None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,"bush_L","bush_C","bush_C","bush_R",None,None,None,"bush_left","bush_center_0","bush_center_1","bush_center_0","bush_right"],
+				[],
+				[]
+			],
+			"background":"overworld",
+			"enemy_spawn_locations":{
+
+			},
+		}
+	}
+}

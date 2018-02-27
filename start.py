@@ -34,7 +34,7 @@ class Update:
 
 	def __call__(self,dt):
 		for i in self.objects:
-			i.update()
+			i.update(dt)
 
 	def draw(self):
 		for i in self.objects:
@@ -46,9 +46,9 @@ class Update:
 update = Update()
 
 # initialization of modules
-Enemy.init(window,update,keys)
-World.init(window,update,keys)
-Mario.init(window,update,keys)
+world = World.init(window,update,keys)
+Enemy.init(window,update,keys,world)
+Mario.init(window,update,keys,world)
 
 
 #starting eventloop
