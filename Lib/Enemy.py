@@ -1,4 +1,5 @@
-import pyglet
+import pyglet,copy
+from .vector import Vector
 
 window = ...
 update = ...
@@ -18,6 +19,9 @@ class statehandler:
 			self.properties = state
 			self.item = item
 
+		def __repr__(self):
+			return str(self.properties)
+
 	def __init__(self):
 		self.states = []
 
@@ -32,26 +36,41 @@ class statehandler:
 				if i.properties[key] != item and i in possibilities:
 					possibilities.remove(i)
 		return possibilities
-		
+	
+	def __repr__(self):
+		return repr(self.states)
+
 
 class Enemy:
-	def __init__(self):
+	def __init__(self,x,y):
 		assert window
 		self.textures = statehandler()
-		self.state = "walk"
-		update.register(self)
+		self.v = Vector(0,0)
+		self.x = Vector(x,y)
+		self.part = 0
+		self.parts = 0
+		self.maxxv = 150
+		self.keys = {"left":False,"right":False,"jump":False}
+		self.flipped = True
+		self.partcounter = 0
+		self.in_jump = False
+
+	def post_init(self):
+		self.sprite = pyglet.sprite.Sprite(self.get_texture(),self.x.x,self.x.y, usage='dynamic', subpixel=False)
 
 	def get_texture(self):
-		t = self.textures[{"state":self.state,"sub":self.sub}]
+		
+		print(self.state)
+
+		t = self.textures[{"state":self.state}]
 		if self.parts != t[0].properties["parts"]:
 			self.parts = t[0].properties["parts"]
 			self.part = 0
-		t = self.textures[{"state":self.state,"sub":self.sub,"part":self.part}]
+		t = self.textures[{"state":self.state,"part":self.part}]
 		assert len(t) == 1
 		return t[0].item
 
 	def update(self,dt):
-		maxxv = 150
 		changed = False
 
 		self.partcounter += 1
@@ -62,15 +81,15 @@ class Enemy:
 		if self.part >= self.parts:
 			self.part = 0
 
-		if keys[W] and not self.in_jump:
+		if self.keys["jump"] and not self.in_jump:
 			self.v.y = 500
 			self.in_jump = True
-		if keys[A]:
+		if self.keys["left"]:
 			if self.v.x > 0:
 				self.v.x -= 25
 			else:
 				self.v.x -= 10
-		if keys[D]:
+		if self.keys["right"]:
 			if self.v.x < 0:
 				self.v.x += 25
 			else:
@@ -228,7 +247,7 @@ class Enemy:
 		if world.overlap(self.x.x,self.x.y-1,self.sprite.width,self.sprite.height) == 0 and not self.in_jump:
 			self.in_jump = True			
 
-		if not (keys[A] or keys[D]):
+		if not (self.keys["left"] or self.keys["right"]):
 			if self.v.x > 10:
 				self.v.x -= 10
 			elif self.v.x < -10:
@@ -236,8 +255,8 @@ class Enemy:
 			else:
 				self.v.x = 0
 
-		self.v.x = maxxv if self.v.x > maxxv else self.v.x
-		self.v.x = -maxxv if self.v.x < -maxxv else self.v.x
+		self.v.x = self.maxxv if self.v.x > self.maxxv else self.v.x
+		self.v.x = -self.maxxv if self.v.x < -self.maxxv else self.v.x
 		self.x += self.v.mult(dt)
 
 		self.sprite.set_position(self.x.x, self.x.y)
@@ -252,7 +271,10 @@ class Enemy:
 			self.flipped = True
 		elif self.v.x > 0.2:
 			self.flipped = False
-		
+	
+		if not changed:
+			self.state = "standing"
+
 		t = self.get_texture()
 		t.anchor_x = 0
 		if self.flipped:
@@ -260,6 +282,8 @@ class Enemy:
 			t = t.get_texture().get_transform(flip_x = True)
 			t.anchor_x = 0		
 		self.sprite.image = t
+
+		self.AI()
 
 	def draw(self):
 		self.sprite.draw()

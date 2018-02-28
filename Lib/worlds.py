@@ -39,6 +39,7 @@ worlds = {
 			],
 			"background":"overworld",
 			"enemy_spawn_locations":{
+				"goomba_brown":(23,3)
 
 			},
 		}

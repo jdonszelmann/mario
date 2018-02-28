@@ -19,6 +19,11 @@ def on_draw():
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	glEnable(GL_BLEND);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+	glEnable(GL_LINE_STIPPLE)
+	glShadeModel(GL_SMOOTH)
 	update.draw()
 
 @window.event

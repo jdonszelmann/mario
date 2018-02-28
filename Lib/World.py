@@ -1,5 +1,5 @@
 import pyglet
-from . import worlds
+from . import worlds, goomba
 from pyglet.gl import *
 
 window = ...
@@ -119,11 +119,14 @@ class World:
 		self.labels = []
 
 		self.sprites = []
+		self.enemies = []
 		self.blocks = []
+
+		update.register(self)
+
 		self.load_world()
 
 
-		update.register(self)
 
 	def check_colision(self,x_pos,y_pos,width,height,axis=">"):
 		if axis == ">":
@@ -177,7 +180,7 @@ class World:
 			glClearColor(0.125,0.22,0.925,1)
 		else:
 			raise ValueError("invalid world type")
-
+	
 		for y,i in enumerate(reversed(self.world["background_blocks"])):
 			for x,j in enumerate(i):
 				if j == None:
@@ -200,7 +203,17 @@ class World:
 		self.height = largesty * self.scale
 
 		for x,y in self.blocks:
-			self.labels.append(pyglet.text.Label(text="{}\n{}".format(x,y),x=x,y=y+self.scale//2,bold=True,color=(0,0,0,255),width=self.scale,batch=self.labelbatch,multiline=True))
+			self.labels.append(pyglet.text.Label(text="{}\n{}".format(x,y),x=x,y=y+self.scale//2,bold=True,color=(0,0,0,255),width=self.scale,batch=self.labelbatch,multiline=True))	
+
+		for key,item in self.world["enemy_spawn_locations"].items():
+			if key == "goomba_brown":
+				e = goomba.goomba_brown(item[0] * self.scale,item[1] * self.scale)
+			
+			update.register(e)
+			self.enemies.append(e)
+
+
+
 
 	def update(self,dt):
 		pass
